@@ -1,0 +1,110 @@
+/*
+ * this program run method Mergesort 
+ */
+package ordenamientom;
+
+/**
+ *
+ * @author Miguel ángel MArtinez
+ */
+public class MetodosM {
+     
+
+    public void ImprimirArreglo(int[] arreglo) {
+       
+        int i;
+       for(i =0; i<arreglo.length; i++){
+         System.out.print("[" + arreglo[i] + "]");
+        
+       System.out.println(); 
+   }    
+}
+
+    public int [] MetodoMergeSort(int[] arreglo) {
+
+        int x, y, z;
+        if (arreglo.length > 1) {  // comparación para saber si el arreglo ya esta ordenado
+            int nIzq = arreglo.length / 2;  // divido el arreglo original en dos
+            int nDer = arreglo.length - nIzq;
+            int arregloIzq[] = new int[nIzq]; //esta es la sublista o arreglo de la izquierda
+            int arregloDer[] = new int[nDer]; // esta es la sublista  o arreglo de la derecha
+
+            for (x = 0; x < nIzq; x++) { // copiando los elementos del arreglo izquierdo
+                arregloIzq[x] = arreglo[x];
+            }
+            for (x = nIzq; x < nIzq + nDer; x++) { // copiando los elementos del arreglo derecho
+                arregloDer[x - nIzq] = arreglo[x];
+            }
+            arregloIzq = MetodoMergeSort(arregloIzq);
+            arregloDer = MetodoMergeSort(arregloDer);
+            x = 0;
+            y = 0;
+            z = 0;
+            while (arregloIzq.length != y && arregloDer.length != z) {
+                if (arregloIzq[y] < arregloDer[z]) {
+                    arreglo[x] = arregloIzq[y];
+                    x++;
+                    y++;
+                } else {
+                    arreglo[x] = arregloDer[z];
+                    x++;
+                    z++;
+                }
+            }
+            while (arregloIzq.length != y) {   //arreglo final
+                arreglo[x] = arregloIzq[y];
+                x++;
+                y++;
+            }
+            while (arregloDer.length != z) {
+                arreglo[x] = arregloDer[z];
+                x++;
+                z++;
+            }
+        }
+
+        return arreglo;
+
+   
+}
+}
+
+/*
+ * this program ejecut the method to orden MergeSort
+ */
+package ordenamientom;
+
+/**
+ *
+ * @author Usuario
+ */
+public class OrdenamientoM {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // TODO code application logic here
+        int arreglo[] = {3,5,1,};
+        MetodosM  m = new MetodosM();                   
+    //m.ImprimirArreglo(arreglo);
+       System.out.println(" el arreglo ordenado es : ");
+    arreglo= m.MetodoMergeSort(arreglo);
+    m.ImprimirArreglo(arreglo);
+     
+       
+        /**
+         * 
+        
+        int arreglo[] = {3,7,2,1,77,44,32,9,10};
+        System.out.println("El arreglo ordenado correctamente es : ");
+         int i;
+        for(i =0; i<arreglo.length; i++){
+            System.out.print("[" + arreglo[i] + "]");
+        }
+        */
+                }
+
+
+    }
+    
