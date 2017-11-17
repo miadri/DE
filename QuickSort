@@ -1,0 +1,111 @@
+/* 
+ 
+ *  this class has three methods to order the array
+ */
+package ordenamientoq;
+
+/**
+ *
+ * @author Miguel Angel Martinez Redondo
+ */
+public class MetodosQuicksort {
+/**
+ * 
+ * @param arreglo is the array that I use 
+ */
+    public void Ordenamientos(int[] arreglo) // create the array 
+    {
+        arreglo = MetodoQuickSort(arreglo); // y uso el metodo  quicksort será igual al arreglo ordenado
+
+    }
+/**
+ * 
+ * @param num el arreglo ordenado
+ * @return el metodo que contiene el arreglo final y ordenado
+ */
+    public int[] MetodoQuickSort(int num[]) // se encarga dedevolvernos el arreglo ya ordenado 
+    {
+        return QuickSortFinal(num, 0, num.length - 1); // contiene los parametros num que es el arreglo, el 0 que será 
+        // el puntero izquierdo, y num.length que es el puntero derecho.
+
+    }
+    
+  /**
+   * 
+   * @param num llama el arreglo
+   * @param izq variable y puntero izquierdo
+   * @param der variable y puntero derecho
+   * @return retorna el arreglo cuando ya este ordenado 
+   */
+
+    public int[]QuickSortFinal(int num[], int izq, int der) //  este será el metodo que lleva la logica del ordenamiento quicksort
+    {
+        if (izq >= der) { // primera comparación para cuando queda un arreglo de 1
+            return num; // retornara que ya esta ordenado
+        }
+        int i = izq, d = der;
+        if (izq != der) { 
+            int pivote;
+            int auxiliar;
+            pivote = izq;
+            while (izq != der) {
+                while (num[der] >= num[pivote] && izq < der) {
+                    der--;
+                }
+                while (num[izq] < num[pivote] && izq < der) {
+                    izq++;
+                }
+                if (der != izq) {
+                    auxiliar = num[der];
+                    num[der] = num[izq];
+                    num[izq] = auxiliar;
+                }
+
+            }
+            if (izq == der) {
+               QuickSortFinal (num, i, izq -1); // cambio de punteros extremo derecho del arreglo izquierdo
+               QuickSortFinal (num, izq + 1, d); // lado derecho del arreglo que quedo a la derecha del pivote
+            
+          {
+            
+                        
+                    }
+        }
+        else 
+            return num;
+        }
+        return num;
+    }
+}
+
+
+
+
+
+1
+/*
+ * *  this program is for use the method  quircksort 
+ */
+package ordenamientoq;
+
+/**
+ *
+ * @author Miguel Ángel Martinez Redondo
+ */
+public class OrdenamientoQ {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // TODO code application logic here
+        int arreglo [] = { 4,2,1,3,7,33,35,11,33};
+        MetodosQuicksort mts = new MetodosQuicksort();
+        mts.MetodoQuickSort(arreglo);
+        for (int i=0; i < arreglo.length; i++)
+        {
+            System.out.println(arreglo[i]);
+        }
+    }
+}
+  
