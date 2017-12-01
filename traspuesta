@@ -1,0 +1,40 @@
+#define MAX 10
+ /*
+  this program ejecut exercice 
+  autor: miguel angel martinez
+*/
+#include<stdio.h>
+
+int main()
+{
+int matriz[MAX][MAX], col, fil, i=0, j=0;
+  printf("ingrese numero de columnas: "); //usuario digita cantidad de columnas
+  scanf("%d", &col);
+  printf("ingrese numero de filas:  ");// usuario digita cantidad de filas
+  scanf("%d", &fil);
+  for(i = 0;i < fil;i++)  // the data is read
+  {
+      for(j = 0;j < col;j++){
+          printf("ESCRIBE LOS VALORES [%d][%d]==>\t", i+1, j+1);
+              scanf("%d", &matriz[i][j]);
+      }
+  }
+  printf("\n\n\t\tMatriz original");// primera matriz 
+  printf("\n\n");
+  for(i = 0;i < fil;i++){
+      printf("\n\t\t");
+      for(j = 0;j < col;j++){
+          printf("  %6d  ", matriz[i][j]);
+          }
+  }
+  printf("\n\n\t\tMatriz transpuesta"); // matriz trasnpuesta
+  printf("\n\n");
+  for(i = 0;i < col;i++){
+      printf("\n\t\t");
+      for(j = 0;j < fil;j++){
+          printf("  %6d  ", matriz[j][i]);
+          }
+  }
+  printf("\n\n\n");
+    }
+ 
