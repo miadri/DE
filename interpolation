@@ -1,0 +1,28 @@
+'''
+# this program is for ejecut the algorimt orden 
+'''
+
+class interpolation:
+    def interpolationSearch(self, array, data):
+        lower = 0  # Limite inferior del segmento
+        higher = len(array) - 1  # Limite superior del segmento
+        index = -1  # Indice inicial por si no se encuentra el valor
+
+        while True:
+            if lower >= higher or array[lower] == array[higher]:  # Impica que no se encontro el valor en el arreglo
+                break
+                # Funcion de Interpolacion, la cual mejora la busqueda binaria original
+        middle = lower + ((higher - lower)
+                          / (array[higher] - array[lower])) * (data - array[lower])
+
+        # Se verifica si el valor corresponda a la posicion media en la cual se esta
+        if array[middle] == data:
+            index = middle  # Al encontrar el valor, se guarda el indice y se termina la busqueda
+
+        else:
+            if array[middle] < data:  # Si el valor es mayor que la mitad, se busca en el segmento superior
+                lower = middle + 1
+            elif array[middle] > data:  # Si el valor es menor que la mitad, se busca en el segmento inferior
+                higher = middle - 1
+
+            return index
