@@ -1,0 +1,38 @@
+/* this program ejecut the methody bubble sort in c++
+ */ 
+ 
+ #include<iostream>
+ #include<cstdlib>
+ 
+ using namespace std;
+ int main(){
+ 	int swap = -1; // declaro variable de cambio o intercambio
+ 	int fin = 6; 
+ 	int length  = 6;
+ 	
+ 	int arreglo[] = {3,6,77,2,989,66};
+ 	
+ 	for(int contador = length - 1; contador > 0; contador--)
+ 	{
+	 
+ 		for (int index = 0; index < fin; index++)
+ 		{
+ 			if (arreglo[index] > arreglo[index + 1])
+ 			{	
+ 				swap = arreglo [index + 1];
+ 				arreglo[index + 1] = arreglo[index];
+ 				arreglo[index] = swap;
+			}
+	    }
+   for(int index = 0; index < 6; index++)
+	{
+		cout<< arreglo [index]<<", ";
+		
+	}
+	cout<< endl;
+	fin--;
+	}
+	
+	
+	
+ }
